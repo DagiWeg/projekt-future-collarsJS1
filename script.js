@@ -68,8 +68,8 @@ function editTransaction(id, type) {
   );
   const { description, amount } = transaction;
 
-  const editedDescription = prompt("Enter edited description", description);
-  const editedAmount = Number(prompt("Enter edited amount", amount));
+  const editedDescription = prompt("Wpisz ponownie opis", description);
+  const editedAmount = Number(prompt("Wpisz ponownie kwotę", amount));
 
   if (editedDescription.trim() === "" || editedAmount === 0) {
     alert("Please provide valid values for description and amount");
@@ -105,8 +105,8 @@ function updateIncomeUI() {
 
   transactions.income.forEach((income) => {
     incomeHTML += `<li>${income.description} - ${income.amount} PLN 
-      <button class="delete-btn" data-id="${income.id}" data-type="income">Delete</button>
-      <button class="edit-btn" data-id="${income.id}" data-type="income">Edit</button></li>`;
+      <button class="delete-btn" data-id="${income.id}" data-type="income">Usuń</button>
+      <button class="edit-btn" data-id="${income.id}" data-type="income">Edytuj</button></li>`;
   });
 
   incomeList.innerHTML = incomeHTML;
