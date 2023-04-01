@@ -8,6 +8,10 @@ const expenseList = document.querySelector("#expense-list");
 const balance = document.querySelector("#balance");
 const editButtons = document.querySelectorAll(".edit-btn");
 
+// Disable input field history
+descriptionInput.setAttribute("autocomplete", "off");
+amountInput.setAttribute("autocomplete", "off");
+
 // Event listeners
 form.addEventListener("submit", addTransaction);
 incomeList.addEventListener("click", deleteOrEditTransaction);
@@ -146,7 +150,7 @@ function updateBalanceUI() {
     )}`;
     balance.style.color = "red";
   } else {
-    balance.textContent = "Bilans jest zero";
+    balance.textContent = "Bilans jest 0";
     balance.style.color = "black";
   }
 }
