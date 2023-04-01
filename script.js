@@ -1,4 +1,3 @@
-// Selectors
 const form = document.querySelector("form");
 const descriptionInput = document.querySelector("#description");
 const amountInput = document.querySelector("#amount");
@@ -8,22 +7,18 @@ const expenseList = document.querySelector("#expense-list");
 const balance = document.querySelector("#balance");
 const editButtons = document.querySelectorAll(".edit-btn");
 
-// Disable input field history
 descriptionInput.setAttribute("autocomplete", "off");
 amountInput.setAttribute("autocomplete", "off");
 
-// Event listeners
 form.addEventListener("submit", addTransaction);
 incomeList.addEventListener("click", deleteOrEditTransaction);
 expenseList.addEventListener("click", deleteOrEditTransaction);
 
-// Transaction objects
 let transactions = {
   income: [],
   expense: [],
 };
 
-// Functions
 function addTransaction(event) {
   event.preventDefault();
 
