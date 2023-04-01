@@ -102,25 +102,31 @@ function updateUI() {
 
 function updateIncomeUI() {
   let incomeHTML = "";
+  let incomeSum = 0;
 
   transactions.income.forEach((income) => {
     incomeHTML += `<li>${income.description} - ${income.amount} PLN 
       <button class="delete-btn" data-id="${income.id}" data-type="income">Usuń</button>
       <button class="edit-btn" data-id="${income.id}" data-type="income">Edytuj</button></li>`;
+    incomeSum += income.amount;
   });
 
+  incomeHTML += `<li class="total">Suma dochodów: ${incomeSum} PLN</li>`;
   incomeList.innerHTML = incomeHTML;
 }
 
 function updateExpenseUI() {
   let expenseHTML = "";
+  let expenseSum = 0;
 
   transactions.expense.forEach((expense) => {
     expenseHTML += `<li>${expense.description} - ${expense.amount} PLN 
       <button class="delete-btn" data-id="${expense.id}" data-type="expense">Delete</button>
       <button class="edit-btn" data-id="${expense.id}" data-type="expense">Edit</button></li>`;
+    expenseSum += expense.amount;
   });
 
+  expenseHTML += `<li class="total">Suma wydatków: ${expenseSum} PLN</li>`;
   expenseList.innerHTML = expenseHTML;
 }
 
@@ -137,7 +143,7 @@ function updateBalanceUI() {
   const balanceAmount = income - expense;
 
   if (balanceAmount > 0) {
-    balance.textContent = `Mozesz wydać jeszcze ${balanceAmount}`;
+    balance.textContent = `Możesz wydać jeszcze ${balanceAmount}`;
     balance.style.color = "green";
   } else if (balanceAmount < 0) {
     balance.textContent = `Bilans jest ujemny. Jesteś na minusie ${Math.abs(
