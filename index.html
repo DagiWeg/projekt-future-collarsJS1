@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Domowy budżet</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Domowy budżet</h1>
+
+    <form>
+      <label for="description">Opis:</label>
+      <input type="text" id="description" placeholder="wpisz opis" required />
+
+      <label for="amount">Kwota:</label>
+      <input type="number" id="amount" placeholder="wpisz kwotę" required />
+
+      <label for="type">Typ:</label>
+      <select id="type" required>
+        <option value="">Wybierz typ</option>
+        <option value="income">Wpływy</option>
+        <option value="expense">Wydatki</option>
+      </select>
+
+      <button type="submit" id="submit-btn">Dodaj</button>
+    </form>
+
+    <section>Balans: <span id="balance">0</span> PLN</section>
+
+    <div class="box-container">
+      <div class="box income-box">
+        <h2>Wpływy</h2>
+        <ul id="income-list"></ul>
+      </div>
+      <div class="box expense-box">
+        <h2>Wydatki</h2>
+        <ul id="expense-list"></ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

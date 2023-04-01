@@ -1,0 +1,170 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 40px;
+  color: #1a65ce;
+  font-family: fantasy;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin: 20px 0;
+  font-size: 24px;
+  color: #2b2d42;
+}
+
+.box-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.box {
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 50%;
+  border: 1px solid #d3d5d8;
+  padding: 20px;
+}
+
+h2 {
+  color: #2b2d42;
+  margin-top: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  padding: 10px 0;
+  border-bottom: 1px solid #d3d5d8;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li .delete-btn {
+  color: #ff6347;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+li.income {
+  color: #9acd32;
+}
+
+li.expense {
+  color: #ff6347;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  font-size: 18px;
+  color: #2b2d42;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  font-size: 18px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #d3d5d8;
+  width: 70%;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #2b2d42;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #1d1f2b;
+}
+
+.income-box,
+.expense-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.income-box {
+  margin-right: 20px;
+  border-color: #9acd32;
+}
+
+.expense-box {
+  margin-left: 20px;
+  border-color: #ff6347;
+}
+
+.income-box h2 {
+  color: #9acd32;
+}
+
+.expense-box h2 {
+  color: #ff6347;
+}
+
+.income-box ul {
+  border-top: 3px solid #9acd32;
+}
+
+.expense-box ul {
+  border-top: 3px solid #ff6347;
+}
+
+.income-box section,
+.expense-box section {
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.income-box section {
+  color: #9acd32;
+}
+
+.expense-box section {
+  color: #ff6347;
+}
+.edit-btn {
+  background-color: #ffc107;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
