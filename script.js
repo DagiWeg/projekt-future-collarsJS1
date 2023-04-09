@@ -26,7 +26,7 @@ function addTransaction(event) {
   const amount = Number(amountInput.value);
   const type = typeInput.value;
 
-  if (description.trim() === "" || amount === 0 || type === "") {
+  if (description.trim() === "" || amount <= 0 || type === "") {
     alert("Proszę wprowadź prawidłowe dane do opisu, kwoty i typu");
     return;
   }
@@ -68,11 +68,11 @@ function editTransaction(id, type) {
   );
   const { description, amount } = transaction;
 
-  const editedDescription = prompt("Wpisz ponownie opis", description);
-  const editedAmount = Number(prompt("Wpisz ponownie kwotę", amount));
+  let editedDescription = prompt("Wprowadź nowy opis", description);
+  let editedAmount = Number(prompt("Wprowadź nową kwotę", amount));
 
-  if (editedDescription.trim() === "" || editedAmount === 0) {
-    alert("Please provide valid values for description and amount");
+  if (editedDescription.trim() === "" || editedAmount <= 0) {
+    alert("Proszę wprowadź prawidłowe dane do opisu, kwoty i typu");
     return;
   }
 
@@ -121,8 +121,8 @@ function updateExpenseUI() {
 
   transactions.expense.forEach((expense) => {
     expenseHTML += `<li>${expense.description} - ${expense.amount} PLN 
-      <button class="delete-btn" data-id="${expense.id}" data-type="expense">Delete</button>
-      <button class="edit-btn" data-id="${expense.id}" data-type="expense">Edit</button></li>`;
+      <button class="delete-btn" data-id="${expense.id}" data-type="expense">Usuń</button>
+      <button class="edit-btn" data-id="${expense.id}" data-type="expense">Edytuj</button></li>`;
     expenseSum += expense.amount;
   });
 
