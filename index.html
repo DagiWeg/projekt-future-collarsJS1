@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>Domowy budżet</title>
-    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -15,10 +17,21 @@
 
     <form>
       <label for="description">Nazwa przychodu / wydatku :</label>
-      <input type="text" id="description" placeholder="wpisz opis" required />
+      <input
+        type="text"
+        id="description"
+        placeholder="wpisz opis"
+        autocomplete="off"
+      />
 
       <label for="amount">Kwota:</label>
-      <input type="number" id="amount" placeholder="wpisz kwotę" required />
+      <input
+        type="number"
+        id="amount"
+        placeholder="wpisz kwotę"
+        autocomplete="off"
+        step="0.01"
+      />
 
       <label for="type">Typ:</label>
       <select id="type" required>
@@ -30,11 +43,15 @@
       <button type="submit" id="submit-btn">Dodaj</button>
     </form>
 
-    <section>Bilans: <span id="balance">0</span> PLN</section>
+    <section>
+      Bilans :
+      <span id="balance"> 0 </span>
+      PLN
+    </section>
 
     <div class="box-container">
       <div class="box income-box">
-        <h2>Wpływy</h2>
+        <h2>Przychody</h2>
         <ul id="income-list"></ul>
       </div>
       <div class="box expense-box">

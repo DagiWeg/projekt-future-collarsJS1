@@ -5,10 +5,6 @@ const typeInput = document.querySelector("#type");
 const incomeList = document.querySelector("#income-list");
 const expenseList = document.querySelector("#expense-list");
 const balance = document.querySelector("#balance");
-const editButtons = document.querySelectorAll(".edit-btn");
-
-descriptionInput.setAttribute("autocomplete", "off");
-amountInput.setAttribute("autocomplete", "off");
 
 form.addEventListener("submit", addTransaction);
 incomeList.addEventListener("click", deleteOrEditTransaction);
@@ -51,6 +47,7 @@ function resetForm() {
   typeInput.nextElementSibling.textContent = "";
   descriptionInput.focus();
 }
+
 function resetSubmitButton() {
   const submitButton = form.querySelector("button[type='submit']");
   submitButton.textContent = "Dodaj";
@@ -69,15 +66,20 @@ function editTransaction(id, type) {
   const { description, amount } = transaction;
 
   let editedDescription = prompt("Wprowadź nowy opis", description);
-  let editedAmount = Number(prompt("Wprowadź nową kwotę", amount));
+  let editedAmount = prompt("Wprowadź nową kwotę", amount);
 
-  if (editedDescription.trim() === "" || editedAmount <= 0) {
-    alert("Proszę wprowadź prawidłowe dane do opisu, kwoty i typu");
+  if (editedDescription.trim() === "") {
+    alert("Proszę wprowadź prawidłowy opis");
+    return;
+  }
+
+  if (isNaN(editedAmount) || Number(editedAmount) <= 0) {
+    alert("Proszę wprowadź prawidłową kwotę");
     return;
   }
 
   transaction.description = editedDescription;
-  transaction.amount = editedAmount;
+  transaction.amount = Number(editedAmount);
 
   updateUI();
 }
@@ -111,7 +113,7 @@ function updateIncomeUI() {
     incomeSum += income.amount;
   });
 
-  incomeHTML += `<li class="total">Suma dochodów: ${incomeSum} PLN</li>`;
+  incomeHTML += `<li class="total">Suma przychodów: ${incomeSum} PLN</li>`;
   incomeList.innerHTML = incomeHTML;
 }
 
@@ -143,15 +145,15 @@ function updateBalanceUI() {
   const balanceAmount = income - expense;
 
   if (balanceAmount > 0) {
-    balance.textContent = `Możesz wydać jeszcze ${balanceAmount}`;
+    balance.textContent = ` Możesz wydać jeszcze ${balanceAmount} `;
     balance.style.color = "green";
   } else if (balanceAmount < 0) {
-    balance.textContent = `Bilans jest ujemny. Jesteś na minusie ${Math.abs(
+    balance.textContent = ` Bilans jest ujemny. Jesteś na minusie ${Math.abs(
       balanceAmount
-    )}`;
+    )} `;
     balance.style.color = "red";
   } else {
-    balance.textContent = "Bilans jest 0";
+    balance.textContent = " Bilans jest 0 ";
     balance.style.color = "black";
   }
 }
